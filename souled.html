@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Souled Store - Women</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #e41e26;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 20px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 120px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-item {
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .hot-tag {
+            color: #e41e26;
+            font-size: 10px;
+            position: absolute;
+            top: -8px;
+            right: -15px;
+        }
+
+        .new-tag {
+            color: #e41e26;
+            font-size: 10px;
+            position: absolute;
+            top: -8px;
+            right: -15px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-text {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            text-align: right;
+        }
+
+        .banner-text h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .banner-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 40px 0 30px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .product-category {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-weight: 700;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-name {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .banner-text {
+                right: 20px;
+            }
+            
+            .banner-text h2 {
+                font-size: 28px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .categories {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-text h2 {
+                font-size: 24px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+            
+            .product-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div>WOMEN</div>
+            <div>MEN</div>
+            <div>KIDS</div>
+        </div>
+        <div class="top-bar-right">
+            <div>India</div>
+            <div>TRACK ORDER</div>
+            <div>CONTACT US</div>
+            <div>DOWNLOAD APP</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <img src="https://www.thesouledstore.com/static/img/300x157-logo.png" alt="The Souled Store" class="logo">
+        
+        <div class="nav-menu">
+            <div class="nav-item">
+                NOMAD
+                <span class="hot-tag">HOT</span>
+            </div>
+            <div class="nav-item">TOPWEAR</div>
+            <div class="nav-item">BOTTOMWEAR</div>
+            <div class="nav-item">BESTSELLERS</div>
+            <div class="nav-item">SNEAKERS</div>
+            <div class="nav-item">COLLECTIONS</div>
+            <div class="nav-item">
+                ACCESSORIES
+                <span class="new-tag">NEW</span>
+            </div>
+            <div class="nav-item">THEMES</div>
+            <div class="nav-item">MEMBERSHIP</div>
+        </div>
+        
+        <div class="nav-icons">
+            <div class="icon">🔍</div>
+            <div class="icon">👤</div>
+            <div class="icon">❤️</div>
+            <div class="icon">🛒</div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cloud 9 Sneakers">
+        <div class="banner-text">
+            <h2>URBAN BLAZE</h2>
+            <p>JUST LAUNCHED</p>
+        </div>
+    </div>
+
+    <!-- New Arrivals -->
+    <h2 class="section-header">NEW ARRIVALS</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="TSS Originals: Cloud 9" class="product-image">
+            <div class="product-info">
+                <div class="product-title">TSS Originals: Cloud 9</div>
+                <div class="product-category">Women Low Top Sneakers</div>
+                <div class="product-price">₹ 2899</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wanderer's Whimsy" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Wanderer's Whimsy</div>
+                <div class="product-category">Women Joggers</div>
+                <div class="product-price">₹ 1499</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Disney: Slow Sunday" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Disney: Slow Sunday</div>
+                <div class="product-category">Women T-Shirts</div>
+                <div class="product-price">₹ 599</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ISRO: Logo" class="product-image">
+            <div class="product-info">
+                <div class="product-title">ISRO: Logo</div>
+                <div class="product-category">Women Oversized T-Shirts</div>
+                <div class="product-price">₹ 899</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trending Now -->
+    <h2 class="section-header">TRENDING NOW</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gilmore Girls: You Have Been Gilmored" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Gilmore Girls: You Have Been Gilmored</div>
+                <div class="product-category">Oversized T-Shirts</div>
+                <div class="product-price">₹ 799</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Korean Pants: Rich Black" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Korean Pants: Rich Black</div>
+                <div class="product-category">Pants</div>
+                <div class="product-price">₹ 1999</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1589810635657-232948472d98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Textured Shirt: Floral Bloom" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Textured Shirt: Floral Bloom</div>
+                <div class="product-category">Shirts</div>
+                <div class="product-price">₹ 1399</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hello Kitty: Kawaii" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Hello Kitty: Kawaii</div>
+                <div class="product-category">Shoes</div>
+                <div class="product-price">₹ 2999</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <h2 class="section-header">CATEGORIES</h2>
+    <div class="categories">
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tops" class="category-image">
+            <div class="category-name">TOPS</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1551799517-eb8f03cb5e6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oversized T-Shirts" class="category-image">
+            <div class="category-name">OVERSIZED T-SHIRTS</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pants" class="category-image">
+            <div class="category-name">PANTS</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shirts" class="category-image">
+            <div class="category-name">SHIRTS</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sneakers" class="category-image">
+            <div class="category-name">SNEAKERS</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dresses" class="category-image">
+            <div class="category-name">DRESSES</div>
+        </div>
+    </div>
+
+    <!-- Shop By Fit -->
+    <h2 class="section-header">SHOP BY FIT</h2>
+    <div class="categories">
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Regular Fit" class="category-image">
+            <div class="category-name">REGULAR FIT</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1551803091-e20673f15770?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oversized Fit" class="category-image">
+            <div class="category-name">OVERSIZED FIT</div>
+        </div>
+        <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Baggy Fit" class="category-image">
+            <div class="category-name">BAGGY FIT</div>
+        </div>
+    </div>
+
+    <script>
+        // Basic JavaScript for navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle functionality could be added here
+            console.log('The Souled Store - Women page loaded');
+        });
+    </script>
+</body>
+</html>
